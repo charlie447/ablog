@@ -16,61 +16,21 @@
   <div class="post_content">  
     <p >由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道</p>
   </div>
-  <div class="weui-grids">
-    <a href="javascript:;" class="weui-grid">
+  <div class="weui-grids" >
+
+    
+    <a href="javascript:;" class="weui-grid" *ngFor="let src of srcList;index as i">
+        <!-- <weui-gallery [imgs]="'./assets/images/img{{i+1}}.jpeg'" 
+        [(show)]="show"
+        (delete)="onDelete($event)"></weui-gallery> -->
         <div class="image_div">
-            <img class= "grid_image" src="./assets/images/pic1.png" alt="">
+            <img class= "grid_image" src="{{src.url}}" alt="{{src.alt}}" (click)="onGallery(src)">
+            
         </div>
-        
+
     </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        
-    </a>
-    <a href="javascript:;" class="weui-grid">
-        <div class="image_div">
-            <img class= "grid_image" src="./assets/images/icon_tabbar.png" alt="">
-        </div>
-        <!-- <p class="weui-grid__label">Grid</p> -->
-    </a>
+    <weui-gallery [imgs]="img_url" [(show)]="imgShow" (delete)="onDel($event)"></weui-gallery>
+   
 </div>
 
 </div>

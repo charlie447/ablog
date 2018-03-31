@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { WeUiModule } from 'ngx-weui';
 import { GalleryModule } from 'ngx-weui/gallery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,7 +23,9 @@ import { PostsComponent } from './posts/posts.component';
   ],
   imports: [
     BrowserModule,
-    WeUiModule.forRoot()
+    WeUiModule.forRoot(),
+    BrowserAnimationsModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
