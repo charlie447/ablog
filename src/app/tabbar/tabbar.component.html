@@ -1,0 +1,30 @@
+<weui-tabbar >
+  <weui-tab heading="广场" [badge]="8" [icon]="'<img src=./assets/images/icon_tabbar.png>'" >
+    <weui-infiniteloader (loadmore)="onLoadMore($event)">
+
+                <div *ngFor="let i of items"  href="javascript:;">
+                    <app-posts></app-posts>
+                </div>>
+
+    </weui-infiniteloader>
+  </weui-tab>
+  <weui-tab heading="通讯录" [icon]="'<img src=./assets/images/icon_tabbar.png>'" (select)="onSelect()">
+      <article class="weui-article">
+          <h1>通知</h1>
+          <p>fffffuuuuuuuuuuuuuuuccccccccckkkkkkkSelect Time: {{time}}</p>
+          <p> 下方的tabbar的宽度是根据这一article标签宽度变化的，很操蛋，但是可以在这里添加一个块级标签</p>
+      </article>
+  </weui-tab>
+  <weui-tab heading="发现" [badge]="'dot'" [icon]="'<img src=./assets/images/icon_tabbar.png>'">
+    <article class="weui-article">
+        <h1>发现</h1>
+        <p> 下方的tabbar的宽度是根据这一article标签宽度变化的，很操蛋，但是可以在这里添加一个块级标签</p>
+    </article>
+</weui-tab>
+  <weui-tab heading="我" [icon]="'<img src=./assets/images/icon_tabbar.png>'">
+      <article class="weui-article">
+          <h1>我</h1>
+          <p> 下方的tabbar的宽度是根据这一article标签宽度变化的，很操蛋，但是可以在这里添加一个块级标签</p>
+      </article>
+  </weui-tab>
+</weui-tabbar>
