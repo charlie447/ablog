@@ -1,0 +1,32 @@
+
+<form #f="ngForm" >
+  <!-- 登录：用户名输入表单 -->
+  <div class="weui-cells">
+      <div class="weui-cell weui-cell_select weui-cell_select-before">
+
+          <div class="weui-cell__bd">
+              <input class="weui-input" type="text" placeholder="用户名"
+                  [(ngModel)]="res.username" name="username"
+                  weui-input="text"
+                  style="height:3em">
+          </div>
+      </div>
+  </div>
+  <!-- 登录密码输入表单 -->
+  <div class="weui-cells">
+    <div class="weui-cell weui-cell_select weui-cell_select-before">
+
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="password" placeholder="请输入密码"
+                [(ngModel)]="res.password" name="username"
+                weui-input="password"
+                style="height:3em">
+        </div>
+    </div>
+</div>
+<!-- 提交按钮 -->
+<div class="weui-btn-area">
+  <button weui-button [weui-plain]="true" [weui-type]="'default'" (click)="onSave()">登录</button>
+</div>
+{{res | json}}
+</form>
