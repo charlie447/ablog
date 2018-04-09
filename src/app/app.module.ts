@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms'
+import { FormsModule} from '@angular/forms';
+import { Routes,RouterModule} from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { WeUiModule } from 'ngx-weui';
 import { GalleryModule } from 'ngx-weui/gallery';
@@ -14,8 +16,15 @@ import { FooterComponent } from './footer/footer.component';
 import { PostsComponent } from './posts/posts.component';
 import { TabbarComponent } from './tabbar/tabbar.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { UserService } from './user.service';
 
+export const ROUTES: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'index', component: HomeComponent },
+  { path: '**', component:PageNotFoundComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,16 +33,21 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     PostsComponent,
     TabbarComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    WeUiModule.forRoot(),
+    WeUiModule,
     BrowserAnimationsModule,
     GalleryModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(
+      ROUTES
+    )
   ],
-  providers: [],
+  providers: [ UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

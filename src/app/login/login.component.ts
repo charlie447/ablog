@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,17 @@ export class LoginComponent implements OnInit {
     username:"",
     password:""
   }
-  constructor() { }
+  constructor(private service : UserService) { 
+    service.getUser().then(r => {console.log(r)});  //调用service
+  }
 
   ngOnInit() {
   }
   onSave() {
-    alert('请求数据：' + JSON.stringify(this.res));
+    // alert('请求数据：' + JSON.stringify(this.res));
+    const resJson = JSON.stringify(this.res)
+    console.log(resJson)
+    this.service.postValidation(resJson)
   }
 
 }
