@@ -20,9 +20,9 @@ export class UserService {
     // console.log('获得用户名和密码!!');
     
   }
-  postValidation(data:any):Promise<Result> {
-    return this.post(this.urls.postValidation,data)
-  }
+  // postValidation(data:any):Promise<Result> {
+  //   return this.post(this.urls.postValidation,data)
+  // }
   // 对get请求进行封装
   private  get(url: string, data: URLSearchParams = null): Promise<Result>  {
     return this.http.get(url, { search: data} )

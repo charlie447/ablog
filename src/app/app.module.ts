@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
-import { Routes,RouterModule} from '@angular/router';
+// import { Routes,RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { WeUiModule } from 'ngx-weui';
 import { GalleryModule } from 'ngx-weui/gallery';
+import { TabModule } from 'ngx-weui';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,12 +21,15 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { UserService } from './user.service';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './services/auth.service';
+import { SignupComponent } from './signup/signup.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { TestComponent } from './test/test.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
-export const ROUTES: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'index', component: HomeComponent },
-  { path: '**', component:PageNotFoundComponent}
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,20 +39,28 @@ export const ROUTES: Routes = [
     PostsComponent,
     TabbarComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignupComponent,
+    UserInfoComponent,
+    TestComponent,
+    TimelineComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
-    WeUiModule,
+    WeUiModule.forRoot(), //must forRoot(). Otherwise get NullInjectionError
     BrowserAnimationsModule,
     GalleryModule,
+    TabModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(
-      ROUTES
-    )
+    AppRoutingModule,
+    CookieModule.forRoot()
   ],
-  providers: [ UserService],
+  providers: [ 
+    UserService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

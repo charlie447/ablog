@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <form #f="ngForm" >
   <!-- 登录：用户名输入表单 -->
   <div class="weui-cells">
@@ -18,7 +18,7 @@
 
         <div class="weui-cell__bd">
             <input class="weui-input" type="password" placeholder="请输入密码"
-                [(ngModel)]="res.password" name="username"
+                [(ngModel)]="res.password" name="password"
                 weui-input="password"
                 style="height:3em">
         </div>
@@ -26,7 +26,11 @@
 </div>
 <!-- 提交按钮 -->
 <div class="weui-btn-area">
-  <button weui-button [weui-plain]="true" [weui-type]="'default'" (click)="onSave()">登录</button>
+  <button weui-button [weui-plain]="true" [weui-type]="'default'" (click)="onLogin()">登录</button>
+  <!-- <a routerLink='index'> 登录 </a> -->
+  <button weui-button [weui-plain]="true" [weui-type]="'default'" (click)="onSignup()">注册</button>
+
 </div>
-{{res | json}}
+<!-- {{res | json}} -->
 </form>
+    <!--将对话框组件放在底部-->

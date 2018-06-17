@@ -1,0 +1,8 @@
+{
+    "/post/create_post":{
+        "target":"http://localhost:5000/api"
+    },
+    "/upload":{
+        "target":"http://localhost:5000"
+    }
+}

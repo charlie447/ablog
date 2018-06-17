@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+
+
+<form #f="ngForm" >
+  <!-- 注册：用户名输入表单 -->
+  <div class="weui-cells">
+      <div class="weui-cell weui-cell_select weui-cell_select-before">
+
+          <div class="weui-cell__bd">
+              <input class="weui-input" type="text" placeholder="用户名"
+                  [(ngModel)]="res.username" name="username"
+                  weui-input="text"
+                  style="height:3em">
+          </div>
+      </div>
+  </div>
+  <!-- 登录密码输入表单 -->
+  <div class="weui-cells">
+    <div class="weui-cell weui-cell_select weui-cell_select-before">
+
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="password" placeholder="请输入密码"
+                [(ngModel)]="res.password" name="password"
+                weui-input="password"
+                style="height:3em">
+        </div>
+    </div>
+</div>
+<!-- 第二次 确认密码 -->
+<div class="weui-cells">
+  <div class="weui-cell weui-cell_select weui-cell_select-before">
+
+      <div class="weui-cell__bd">
+          <input class="weui-input" type="password" placeholder="请输入密码"
+              [(ngModel)]="res.re_password" name="re_password"
+              weui-input="re_password"
+              style="height:3em">
+      </div>
+  </div>
+</div>
+<!-- 性别 -->
+<div class="weui-cells weui-cells_form">
+  <div class="weui-cell">
+      <div class="weui-cell__hd">
+          <label class="weui-label">性别</label>
+      </div>
+      <div class="weui-cell__bd">
+          <weui-picker placeholder="选择" [(ngModel)]="res.gender" name="gender"
+              [groups]="itemGroup"
+              [options]="{cancel:'Cancel', confirm:'Confirm', backdrop: false}"></weui-picker>
+      </div>
+  </div>
+</div>
+<!-- 简介 -->
+<div class="weui-cells__title">简介</div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="写点东西介绍介绍自己" rows="4" [(ngModel)]="res.bio" name="bio"
+                weui-textarea weui-cn="2" maxlength="60"></textarea>
+        </div>
+    </div>
+</div>
+
+<!-- upload avatar -->
+<div class="weui-cells__title">上传头像</div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="file" accept="image/*" placeholder="请上传头像"
+             name="avatar"
+            weui-input="avatar"
+            style="height:3em">
+        </div>
+    </div>
+</div>
+
+<!-- <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <div class="weui-uploader">
+                <div class="weui-uploader__hd">
+                    <p class="weui-uploader__title">图片上传</p>
+                    <div class="weui-uploader__info">{{uploader?.uploadedCount}}/{{uploader?.queue?.length}}</div>
+                </div>
+                <div class="weui-uploader__bd">
+                    <ul class="weui-uploader__files">
+                        <li class="weui-uploader__file" *ngFor="let item of uploader.queue"
+                            [weui-thumb]="item._file"
+                            (click)="onGallery(item)"
+                            [ngClass]="{'weui-uploader__file_status': item.isError}">
+                            <div class="weui-uploader__file-content" *ngIf="item.isUploading">{{item.progress}}%</div>
+                            <div class="weui-uploader__file-content" *ngIf="item.isError">
+                                <i class="weui-icon-warn"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="weui-uploader__input-box">
+                        <input class="weui-uploader__input" type="file" accept="image/*" multiple
+                            [weui-uploader-file]="uploader" required>
+                    </div>
+                </div>
+            </div>
+            <weui-gallery [imgs]="img" [(show)]="imgShow" (delete)="onDel($event)"></weui-gallery>
+        </div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <button weui-button (click)="uploader.uploadAll()" [disabled]="uploader.isUploading">注册</button>
+</div> -->
+<!-- 提交按钮 -->
+<div class="weui-btn-area">
+  
+  <button weui-button [weui-plain]="true" [weui-type]="'default'" (click)="onSignup($event)">注册</button>
+</div>
+<!-- {{res | json}} -->
+</form>
